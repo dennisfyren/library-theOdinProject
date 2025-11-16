@@ -100,7 +100,3 @@ function addBook() {
     newBook.style.display = "none";
     listBooks()
 }};
-const theHobbit = new Book('The Hobbit', 'JRR Tolkien', '243', 'Yes')
-const theLord = new Book('The Lord of the Rings', 'JRR Tolkien', '343', 'Yes')
-addBookToLibrary(theHobbit);
-addBookToLibrary(theLord);
