@@ -62,16 +62,15 @@ function listBooks(){
         textbox.appendChild(f);
         f.textContent = 'Toggle Read';
         f.addEventListener("click", function() {
-               const objWithIdIndex = myLibrary.findIndex((obj) => obj.UUID === e.id)
-            if (myLibrary[objWithIdIndex].read === "Already read: Yes") {
-            myLibrary[objWithIdIndex].read = "Already read: No";
-            d.textContent = "Already read: No";
+               const objWithIdIndex = myLibrary.findIndex((obj) => obj.UUID === e.id)          
+            if (myLibrary[objWithIdIndex].read === 'Yes') {
+                myLibrary[objWithIdIndex].read = 'No';
+                listBooks()
             } else {
-                myLibrary[objWithIdIndex].read = `Already read: Yes`
-                d.textContent = "Already read: Yes";
+                myLibrary[objWithIdIndex].read = 'Yes';
+                listBooks()
             }
-            
-        })
+            })
 
     })
 };
