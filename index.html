@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./java.js" defer></script>
+</head>
+<body>
+    <div class="wrapper">
+        <h2>Library</h2>
+        <div id="newbook">
+            <form onsubmit="this.reset(); return false">
+                <input type="text" id="new-title" name="title" placeholder="Title">
+                <input type="text" id="new-author" name="author" placeholder="Author">
+                <input type="text" id="new-pages" name="pages" placeholder="Pages">
+                <div>
+                    <label for="checkbox">Read?</label>
+                    <input type="checkbox" id="new-read" name="read">
+                </div>
+                <button id="submit" onclick="addBook()">Submit</button>
+            </form>
+        </div>
+        <button id="new" onclick="showForm()">Add Book</button>
+        <button id="show" onclick="listBooks()">Show Books</button>
+        <div class="books">
+    </div>
+        
+    </div>
+</body>
+</html>

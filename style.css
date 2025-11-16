@@ -1,0 +1,42 @@
+html {
+    background-color: rgb(1, 1, 44);
+    color: white;
+}
+.wrapper {
+    margin-left: 5rem;
+}
+.books {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-column-gap: 15px;
+}
+.books div {
+    background: rgb(228, 228, 228);
+    border: 1px solid black;
+    margin-top: 5px;
+    padding: 5px;
+}
+.books div p {
+    color: black;
+    font-size: 0.8rem;
+}
+#newbook {
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+#newbook form {
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+}
+#newbook form input {
+    height: 1.3rem;
+}
+#newbook form div {
+    display: flex;
+    justify-content: space-around;
+}
+.books div button {
+    margin-right: 5px;
+}
