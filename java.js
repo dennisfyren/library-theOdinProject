@@ -6,25 +6,35 @@ const newBook = document.querySelector('#newbook')
 
 newBook.style.display = 'none';
 
-function Book(title, author, pages, read) {
-    if (!new.target){
-        throw Error('You may want to use the new before Book');
-    }
-    this.UUID = crypto.randomUUID();
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-}
-Book.prototype.getInfo = function() {
-    return `${this.title} by ${this.author} and is ${this.pages} pages long. Read? ${this.read}`
-}
- nenwj hkfhsadkjfdh aksjhkd
 
-function addBookToLibrary(book) {
-    myLibrary.push(book);
-  // take params, create a book then store it in the array
+   
+class book {
+    constructor(title, author, pages, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.UUID = crypto.randomUUID();
+    }
+    addToLibrary(book){
+        myLibrary.push(book);
+    }
 }
+
+function addBook(){
+    const newTitle = document.querySelector('#new-title').value;
+    const newAuthor = document.querySelector('#new-author').value;
+    const newPages = document.querySelector('#new-pages').value;
+    let newRead = (document.querySelector('#new-read').checked === 'true') ? 'No' : 'Yes';
+    if (newTitle === '' || newAuthor === '' || newPages === '') {
+            alert('Please fill out the form before submitting');
+    } else {
+        const addedBook = new book(newTitle, newAuthor, newPages, newRead);
+        addedBook.addToLibrary(addedBook);
+        listBooks();
+    }
+}
+
 function listBooks(){
     showBooks.textContent = ''
     myLibrary.forEach((book) => {
@@ -83,21 +93,3 @@ function showForm() {
         newBook.style.display = "none";
     }       
 }
-function addBook() {
-    const newTitle = document.querySelector('#new-title').value;
-    const newAuthor = document.querySelector('#new-author').value;
-    const newPages = document.querySelector('#new-pages').value;
-    let newRead = document.querySelector('#new-read').checked;
-    if (newRead === true) {
-        newRead = 'Yes';
-    } else {
-        newRead = 'No';
-    }
-    if (newTitle === '' || newAuthor === '' || newPages === '') {
-        alert('Please fill out the form before submitting');
-    } else{
-    const book = new Book(newTitle, newAuthor, newPages, newRead);
-    addBookToLibrary(book);
-    newBook.style.display = "none";
-    listBooks()
-}};
