@@ -20,6 +20,7 @@ Book.prototype.getInfo = function() {
     return `${this.title} by ${this.author} and is ${this.pages} pages long. Read? ${this.read}`
 }
 
+
 function addBookToLibrary(book) {
     myLibrary.push(book);
   // take params, create a book then store it in the array
