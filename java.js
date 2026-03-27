@@ -119,24 +119,37 @@ submit.addEventListener("click", () => {
     const title = document.querySelector("#new-title");
     const author = document.querySelector("#new-author");
     const pages = document.querySelector("#new-pages");
+
     let parent;
     let item;
-
+    let valid;
+    
+    function validate(){
         if (title.value === ""){
             item = title;
             parent = document.querySelector("#input-title");
+            valid = false;
         } else if (author.value === ""){
             item = author;
             parent = document.querySelector("#input-author");
+            valid = false;
         } else if (pages.value === ""){
             item = pages;
             parent = document.querySelector("#input-pages");
+            valid = false;
         }
-        parent.classList.add("anchor");
-        showError(item, parent);
-        setTimeout(() => {
-            parent.classList.remove("anchor");
-        }, 2000) 
-
-
+        function displayError(){
+            parent.classList.add("anchor");
+            showError(item, parent);
+            setTimeout(() => {
+                parent.classList.remove("anchor");
+            }, 2000) 
+        }
+        if (valid === false) {
+            displayError()
+        } else {
+            addBook();
+        }
+    }
+    validate();
 })
