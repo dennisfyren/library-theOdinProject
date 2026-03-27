@@ -11,15 +11,21 @@
     <div class="wrapper">
         <h2>Library</h2>
         <div id="newbook">
-            <form onsubmit="this.reset(); return false">
-                <input type="text" id="new-title" name="title" placeholder="Title">
-                <input type="text" id="new-author" name="author" placeholder="Author">
-                <input type="text" id="new-pages" name="pages" placeholder="Pages">
+            <form onsubmit="return false" novalidate>
+                <div id="input-title">
+                    <input type="text" id="new-title" name="title" placeholder="Title">
+                </div>
+                <div id="input-author">
+                    <input type="text" id="new-author" name="author" placeholder="Author">
+                </div>
+                <div id="input-pages">
+                    <input type="text" id="new-pages" name="pages" placeholder="Pages">
+                </div>
                 <div>
                     <label for="checkbox">Read?</label>
                     <input type="checkbox" id="new-read" name="read">
                 </div>
-                <button id="submit" onclick="addBook()">Submit</button>
+                <button id="submit">Submit</button>
             </form>
         </div>
         <button id="new" onclick="showForm()">Add Book</button>

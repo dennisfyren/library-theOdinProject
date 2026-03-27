@@ -40,3 +40,25 @@ html {
 .books div button {
     margin-right: 5px;
 }
+.anchor {
+    anchor-name: --error-anchor;
+}
+.pop-up {
+    display: block;
+    position: absolute;
+    position-anchor: --error-anchor;
+    position-area: bottom;
+    left: 12rem;
+    top: -1rem;
+    height: 1.7rem;
+    border: 1px solid red;
+    padding: 0.2rem;
+    align-items: center;
+    background-color: white;
+    color: black;
+    transition: 1.5s ease;
+    border-radius: 0.4rem;
+}
+.hidden {
+    opacity: 0;
+}

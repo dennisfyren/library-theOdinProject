@@ -93,3 +93,50 @@ function showForm() {
         newBook.style.display = "none";
     }       
 }
+
+function showError(field, parent){
+    const placement = parent;
+    const messageBox = document.createElement("div");
+    messageBox.classList.add("pop-up");
+    const message = document.createElement("p");
+    message.textContent = `Please fill in ${field.name} before submitting.`
+
+    placement.appendChild(messageBox);
+    messageBox.appendChild(message);
+
+    setTimeout(() => {
+        parent.lastChild.classList.add("hidden");
+        setTimeout(() => {
+            parent.removeChild(parent.lastChild);
+        }, 1000)  
+    } , 1500);
+}
+
+
+
+const submit = document.querySelector("#submit");
+submit.addEventListener("click", () => {
+    const title = document.querySelector("#new-title");
+    const author = document.querySelector("#new-author");
+    const pages = document.querySelector("#new-pages");
+    let parent;
+    let item;
+
+        if (title.value === ""){
+            item = title;
+            parent = document.querySelector("#input-title");
+        } else if (author.value === ""){
+            item = author;
+            parent = document.querySelector("#input-author");
+        } else if (pages.value === ""){
+            item = pages;
+            parent = document.querySelector("#input-pages");
+        }
+        parent.classList.add("anchor");
+        showError(item, parent);
+        setTimeout(() => {
+            parent.classList.remove("anchor");
+        }, 2000) 
+
+
+})
